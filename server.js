@@ -6,7 +6,13 @@ const connectDB = require("./config/db");
 const app = express();
 connectDB();
 
-app.use(cors());
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://cmass-frontend.vercel.app/",
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/authRoutes"));
