@@ -8,7 +8,7 @@ connectDB();
 
 
 app.use(cors({
-  origin: "https://cmass-frontend.vercel.app",
+  origin: "https://cmas-frontend.vercel.app/",
   credentials: true
 }));
 
