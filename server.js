@@ -6,15 +6,17 @@ const connectDB = require("./config/db");
 const app = express();
 connectDB();
 
-
 app.use(express.json());
+
 app.use(
   cors({
     origin: "https://cmas-frontend.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
+
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/certifications", require("./routes/certRoutes"));
 
